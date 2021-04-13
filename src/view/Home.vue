@@ -1,28 +1,44 @@
 
-<script setup>
-import { ref } from "vue";
-  ref: name  = 'me'
-  ref: count   = 1
+<script>
+import { defineComponent } from 'vue'
 
-  const addName = () => {
-    count += 1;
-    name += count;
-    return name;
+export default defineComponent({
+  name: 'App',
+  methods: {
+    onOtherClick () {
+
+    }
   }
+})
+</script>
+
+
+<script setup>
+// import { ref } from "vue";
+ref: name = 'me'
+ref: count = 1
+
+const addName = () => {
+  console.log(count);
+  count += 1;
+  name += count;
+  return name;
+}
 
 </script>
 
 <template>
   <div>
     {{name}}
-    <!-- {{count}} -->
-    <!-- <button @click="addName">click</button> -->
-    <!-- <button @click="onOtherClick">click</button> -->
-    <el-button type="primary" size="mini" @click="">1234</el-button>
-    
+    {{count}}
+    <button @click="addName">click</button>
+    <button @click="onOtherClick">click</button>
+    <el-button type="primary"
+               size="mini"
+               @click="">1234</el-button>
+
   </div>
 </template>
 
 <style scoped>
-
 </style>

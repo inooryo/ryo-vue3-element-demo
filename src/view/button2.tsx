@@ -3,7 +3,7 @@ export default defineComponent({
   name: 'bottom2',
 
   setup(props) {
-    let clickNumber: Number = ref(0)
+    let clickNumber = ref(0)
     const iconList = [
       {
         name: '我是一个小小按钮',
@@ -24,7 +24,7 @@ export default defineComponent({
               {item.name + clickNumber.value}
             </div>
           </div>
-          <button onclick={addNumber} >click</button>
+          <button onClick={addNumber} >click</button>
         </div>
         )}
       </div>

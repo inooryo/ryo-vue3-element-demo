@@ -4,9 +4,8 @@
   <button @click="increment">Increment</button>
 </template>
 
-<script setup lang='ts'>
+<script setup>
 import bottom from "./buttom.tsx";
-
 import { ref } from "vue";
 
 ref: name = "me";
@@ -18,7 +17,6 @@ const increment = () => {
 };
 
 const addName = () => {
-  console.log(count);
   count += 1;
   name += count;
   return name;

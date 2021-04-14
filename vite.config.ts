@@ -1,21 +1,24 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx';
-const path = require('path');
-function resolve(dir) {
-  return path.join(__dirname, dir)
-}
+const { resolve } = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), vueJsx()],
+  resolve:{
+    alias:{
+      '@': resolve(__dirname, './src'),
+      '#': resolve(__dirname, './public'),
+      '@a': resolve(__dirname, './src/assets'),
+      '@v': resolve(__dirname, './src/view'),
+      '@c': resolve(__dirname, './src/components')
+    }
+  },
   css: {
     preprocessorOptions: {
       less: {
-        modifyVars: {
-          hack: `true; @import (reference) "${resolve('src/assets/less/main.less')}";`,
-        },
-        javascriptEnabled: true,
+        additionalData: '@import "./src/assets/less/main.less";'
       }
     }
   },

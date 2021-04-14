@@ -1,15 +1,23 @@
 <template>
-  <div class="box-color">
-    456465
+  <div class="h-100">
+      <div class="header">
+
+      </div>
+      <div class="main">
+        <div class="aside">
+
+        </div>
+        <div class="content">
+
+        </div>
+      </div>
   </div>
 </template>
 
-<script setup lang="ts">
-
+<script setup="props, { emit }" lang="ts">
+  // console.log(props)
 </script>
 
 <style lang='less' scoped>
-.box-color{
-  background-color: @mainColor;
-}
+
 </style>

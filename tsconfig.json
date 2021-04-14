@@ -30,6 +30,18 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "#/*": [
+        "public/*"
+      ],
+      "@a/*": [
+        "src/assets/*"
+      ],
+      "@v/*": [
+        "src/view/*"
+      ],
+      "@c/*": [
+        "src/components/*"
       ]
     }
   },

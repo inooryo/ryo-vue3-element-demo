@@ -5,5 +5,16 @@ import 'element-plus/lib/theme-chalk/index.css';
 import router from './router';
 import App from './App.vue'
 import './assets/less/main.less'
+import { useSession } from "@c/commonComponents/sessionOptions";
 
-createApp(App).use(router).use(store).use(ElementPlus).mount('#app')
+const init = () =>{
+  let { getSession } = useSession()
+  const isLogin = getSession('userInfo')
+  if (isLogin) {
+    store.commit('setUserInfo', isLogin)
+  }
+  createApp(App).use(router).use(store).use(ElementPlus).mount('#app')
+}
+
+init()
+

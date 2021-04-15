@@ -13,13 +13,18 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue'
-// import { routeItme } from "@c/commonComponents/interface";
+// import { routeItme } from "@c/commonComponents/commonInterface";
 import { getStatic } from "@/api/static";
 import commonPage from '@c/common/commonPage.vue'
 import commonHeader from '@c/common/commonHeader.vue'
 import commonAside from '@c/common/commonAside.vue'
 
-const asideMaker = (n:Number) => {
+interface routeItme{
+  label: string,
+  index: string
+}
+
+const asideMaker = (n:Number) :Array<routeItme> => {
   let numberArr = new Array(n).fill(0).map((v, i) => i + 1).map(v => {
     return {
       label: '路由' + v,
@@ -31,7 +36,7 @@ const asideMaker = (n:Number) => {
 }
 let activeIndex = ref('')
 let asideCol  = reactive(asideMaker(9))
-const changeIndex = (route ) => {
+const changeIndex = (route :routeItme ) => {
   activeIndex.value = route.index
 }
 

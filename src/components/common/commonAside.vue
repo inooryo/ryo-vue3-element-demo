@@ -24,6 +24,11 @@ import { defineProps, defineEmit, toRefs, computed } from "vue";
 // import { routeItme } from "@c/commonComponents/interface";
 import { useStore } from "vuex";
 
+interface routeItme{
+  label: string,
+  index: string
+}
+
 const store = useStore();
 const emit = defineEmit(['changeIndex'])
 let props = defineProps({
@@ -39,7 +44,7 @@ let props = defineProps({
 
 let { asideCol, activeIndex } = toRefs(props)
 let activeIndexTry = computed(() => props.activeIndex)
-const asideClick = (params :any) => {
+const asideClick = (params :routeItme) => {
   emit('changeIndex', params)
 }
 

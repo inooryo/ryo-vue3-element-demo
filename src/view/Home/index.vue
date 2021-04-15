@@ -13,12 +13,13 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue'
-import { routeItme } from "@c/commonComponents/interface";
+// import { routeItme } from "@c/commonComponents/interface";
+import { getStatic } from "@/api/static";
 import commonPage from '@c/common/commonPage.vue'
 import commonHeader from '@c/common/commonHeader.vue'
 import commonAside from '@c/common/commonAside.vue'
 
-const asideMaker = (n:Number) :Array<routeItme> => {
+const asideMaker = (n:Number) => {
   let numberArr = new Array(n).fill(0).map((v, i) => i + 1).map(v => {
     return {
       label: '路由' + v,
@@ -29,14 +30,20 @@ const asideMaker = (n:Number) :Array<routeItme> => {
   return numberArr;
 }
 let activeIndex = ref('')
-let asideCol :Array<routeItme> = reactive(asideMaker(9))
-const changeIndex = (route :routeItme) => {
+let asideCol  = reactive(asideMaker(9))
+const changeIndex = (route ) => {
   activeIndex.value = route.index
-  console.log(activeIndex.value);
+}
+
+const getStaticData = () => {
+  getStatic('Json/test.json').then(r => {
+    console.log(r);
+  })
 }
 
 onMounted(() => {
   activeIndex.value = asideCol[0].index
+  getStaticData()
 })
 
 </script>

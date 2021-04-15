@@ -1,44 +1,57 @@
 <template>
   <div class="h-100">
-    <div class="header">
-      123
+    <div class="header border-box">
+      <slot name="header"></slot>
     </div>
-    <div class="main">
-      <div class="aside">
-
+    <div class="main border-box">
+      <div class="aside h-100">
+        <slot name="aside border-box"></slot>
       </div>
-      <div class="content">
-
+      <div
+           class="content border-box h-100">
+        <slot name="main"></slot>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-  export default {
-    props:['asideWith', 'headerHeight'],
-    mounted() {
-      console.log(this.headerHeight); 
-    }
-  }
+export default {
+
+};
 </script>
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-// const { asideWith, headerHeight } = defineProps({
-//   asideWith:{
-//     type:Number
-//   },
-//   headerHeight:{
-//     type:Number
-//   }
-// });
-
-// console.log(asideWith, headerHeight);
+const { asideWith, headerHeight } = defineProps({
+  asideWith: {
+    type: String,
+    default: "200px"
+  },
+  headerHeight: {
+    type: String,
+    default: "45px"
+  },
+});
 </script>
 
 <style lang='less'  scoped>
-  .header{
-    height: var(--headerHeight);
-  }
+.aside {
+  position: fixed;
+}
+.header{
+  height: v-bind(headerHeight);
+  // border: 1px solid #000;
+}
+.aside{
+  width: v-bind(asideWith);
+  // border: 1px solid #000;
+}
+.content{
+  margin-left: v-bind(asideWith);
+  // border: 1px solid #000;
+}
+.main{
+  height: calc(100% - v-bind(headerHeight));
+}
 </style>

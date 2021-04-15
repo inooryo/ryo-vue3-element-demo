@@ -4,8 +4,8 @@
       <slot name="header"></slot>
     </div>
     <div class="main border-box">
-      <div class="aside h-100">
-        <slot name="aside border-box"></slot>
+      <div class="aside border-box h-100">
+        <slot name="aside"></slot>
       </div>
       <div
            class="content border-box h-100">

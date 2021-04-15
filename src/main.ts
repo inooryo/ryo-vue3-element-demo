@@ -5,6 +5,7 @@ import 'element-plus/lib/theme-chalk/index.css';
 import router from './router';
 import App from './App.vue'
 import './assets/less/main.less'
+import './assets/less/flex.less'
 import { useSession } from "@c/commonComponents/sessionOptions";
 
 const init = () =>{

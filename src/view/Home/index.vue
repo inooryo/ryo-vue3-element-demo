@@ -13,16 +13,11 @@
 
 <script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue'
-// import { routeItme } from "@c/commonComponents/commonInterface";
 import { getStatic } from "@/api/static";
 import commonPage from '@c/common/commonPage.vue'
 import commonHeader from '@c/common/commonHeader.vue'
 import commonAside from '@c/common/commonAside.vue'
-
-interface routeItme{
-  label: string,
-  index: string
-}
+import type { routeItme } from "@c/commonComponents/commonInterface";
 
 const asideMaker = (n:Number) :Array<routeItme> => {
   let numberArr = new Array(n).fill(0).map((v, i) => i + 1).map(v => {

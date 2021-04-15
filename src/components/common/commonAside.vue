@@ -21,13 +21,8 @@ export default {
 
 <script setup lang="ts">
 import { defineProps, defineEmit, toRefs, computed } from "vue";
-// import { routeItme } from "@c/commonComponents/interface";
+import type { routeItme } from "@c/commonComponents/commonInterface";
 import { useStore } from "vuex";
-
-interface routeItme{
-  label: string,
-  index: string
-}
 
 const store = useStore();
 const emit = defineEmit(['changeIndex'])
